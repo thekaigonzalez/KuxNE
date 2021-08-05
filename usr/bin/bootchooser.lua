@@ -78,6 +78,9 @@ else
             thread_sleep(2)
         elseif y_n == "n" then
             LOG("alright, calibration complete.")
+            if io.open("usr/bootloader") == nil then
+                sys_mkdir("usr/bootloader")
+            end
             thread_sleep(1)
             if bootloader == "default" then
                 LOG("copying default bootmgr directories to installer directories...")
